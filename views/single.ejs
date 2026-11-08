@@ -1,0 +1,68 @@
+<%- include('partials/header', { title: product.title }) %>
+
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Products</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= product.title %></li>
+    </ol>
+  </nav>
+
+  <div class="card shadow-sm border-0">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="<%= product.image || '/image/products/placeholder.svg' %>" class="single-img" alt="<%= product.title %>">
+      </div>
+
+      <div class="col-md-7">
+        <div class="card-body p-4 p-lg-5 d-flex flex-column h-100">
+          <% if (product.category) { %>
+            <span class="badge text-bg-secondary align-self-start mb-2"><%= product.category %></span>
+          <% } %>
+
+          <h1 class="h2 fw-bold"><%= product.title %></h1>
+          <p class="display-6 fw-semibold text-primary my-3"><%= formatPrice(product.price) %></p>
+
+          <p class="description-text"><%= product.description %></p>
+
+          <p class="text-muted small mt-auto mb-3">
+            Qo'shgan: <strong><%= ownerName %></strong> &middot;
+            <%= new Date(product.createdAt).toLocaleDateString('uz-UZ') %>
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a href="/" class="btn btn-outline-secondary">Back</a>
+            <% if (canManage) { %>
+              <a href="/products/<%= product.id %>/edit" class="btn btn-warning">Edit</a>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if (canManage) { %>
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="deleteTitle">Mahsulotni o'chirish</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Yopish"></button>
+        </div>
+        <div class="modal-body">
+          <strong><%= product.title %></strong> o'chirilsinmi? Bu amalni qaytarib bo'lmaydi.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Bekor qilish</button>
+          <form action="/products/<%= product.id %>/delete" method="post" class="m-0">
+            <button type="submit" class="btn btn-danger">Ha, o'chirish</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+<%- include('partials/footer') %>

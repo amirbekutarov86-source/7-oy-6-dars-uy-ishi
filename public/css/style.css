@@ -1,0 +1,127 @@
+:root {
+  --navy: #0b2a3d;
+  --navy-2: #12425e;
+  --gold: #f2a900;
+}
+
+body {
+  background: #f4f6fb url('/image/bg.webp') center / cover fixed no-repeat;
+  color: #1f2937;
+}
+
+.shop-nav {
+  background: linear-gradient(90deg, var(--navy), var(--navy-2));
+  border-bottom: 3px solid var(--gold);
+}
+.brand-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(242, 169, 0, 0.7);
+}
+.shop-footer {
+  background: var(--navy);
+  color: #cbd5e1;
+}
+
+
+.hero-carousel {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 42, 61, 0.25);
+  background: var(--navy);
+}
+.hero-img {
+  height: 340px;
+  object-fit: cover;
+  object-position: center 55%;
+}
+.hero-caption {
+  left: 6%;
+  right: 6%;
+  bottom: 2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.hero-carousel .carousel-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 55%);
+  pointer-events: none;
+}
+.hero-carousel .carousel-caption,
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next,
+.hero-carousel .carousel-indicators {
+  z-index: 3;
+}
+
+
+.product-card {
+  border: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(11, 42, 61, 0.18) !important;
+}
+.product-img {
+  height: 220px;
+  object-fit: cover;
+  background: #e9ecef;
+}
+.empty-box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+}
+
+.single-img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+.description-text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.form-preview {
+  max-height: 120px;
+  border-radius: 10px;
+}
+
+body.auth-page {
+  background: #05070a url('/image/three.webp') center / cover fixed no-repeat;
+}
+body.auth-page main {
+  display: flex;
+  align-items: center;
+}
+.auth-card {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 4px solid var(--gold) !important;
+}
+.code-input {
+  letter-spacing: 0.6em;
+  font-weight: 700;
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--navy);
+}
+
+@media (max-width: 575.98px) {
+  .hero-img { height: 220px; }
+  .single-img { border-radius: 0.375rem 0.375rem 0 0; }
+}

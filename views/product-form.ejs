@@ -1,0 +1,66 @@
+<% const isEdit = mode === 'edit' %>
+<%- include('partials/header', { title: isEdit ? 'Edit product' : 'Add product' }) %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-9 col-lg-7">
+      <div class="card shadow-sm border-0">
+        <div class="card-body p-4 p-md-5">
+          <h1 class="h3 mb-4"><%= isEdit ? 'Edit product' : 'Add product' %></h1>
+
+          <% if (errors.length) { %>
+            <div class="alert alert-danger">
+              <ul class="mb-0 ps-3"><% errors.forEach((e) => { %><li><%= e %></li><% }) %></ul>
+            </div>
+          <% } %>
+
+          <form method="post" enctype="multipart/form-data"
+                action="<%= isEdit ? '/products/' + product.id + '/edit' : '/products/add' %>">
+
+            <div class="mb-3">
+              <label for="title" class="form-label">Nomi</label>
+              <input type="text" class="form-control" id="title" name="title" required minlength="2" maxlength="80"
+                     value="<%= product.title || '' %>">
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Tavsif</label>
+              <textarea class="form-control" id="description" name="description" rows="4" required
+                        minlength="2" maxlength="1000"><%= product.description || '' %></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <label for="price" class="form-label">Narx ($)</label>
+                <input type="number" class="form-control" id="price" name="price" required min="0" max="1000000" step="0.01"
+                       value="<%= product.price !== undefined ? product.price : '' %>">
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="category" class="form-label">Kategoriya <span class="text-muted">(ixtiyoriy)</span></label>
+                <input type="text" class="form-control" id="category" name="category" maxlength="40"
+                       value="<%= product.category || '' %>">
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="image" class="form-label">
+                Rasm <span class="text-muted">(JPG, PNG yoki WEBP, 2 MB gacha<%= isEdit ? ". Yubormasangiz, eski rasm qoladi" : '' %>)</span>
+              </label>
+              <input type="file" class="form-control" id="image" name="image" accept="image/jpeg,image/png,image/webp">
+              <% if (isEdit && product.image) { %>
+                <img src="<%= product.image %>" class="form-preview mt-3" alt="Joriy rasm">
+              <% } %>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary"><%= isEdit ? 'Save changes' : 'Add product' %></button>
+              <a href="<%= isEdit ? '/products/' + product.id : '/' %>" class="btn btn-outline-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

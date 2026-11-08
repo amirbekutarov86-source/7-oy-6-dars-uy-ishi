@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Pencil Case",
+    "description": "Sig'imli qalamdon, mustahkam zanjir. Ichida 3 ta rangli qalam bor.",
+    "price": 7.2,
+    "category": "Stationery",
+    "image": "/image/products/pencil-case.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 2,
+    "title": "Desk Lamp",
+    "description": "Stol uchun LED lampa. Yorqinligi sozlanadi, ko'zni charchatmaydi.",
+    "price": 24,
+    "category": "Home",
+    "image": "/image/products/lamp.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 3,
+    "title": "Coffee Mug",
+    "description": "Keramik krujka, 350 ml. Idish yuvish mashinasida yuvish mumkin.",
+    "price": 8.5,
+    "category": "Home",
+    "image": "/image/products/mug.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 4,
+    "title": "Wireless Headphones",
+    "description": "Simsiz quloqchinlar: shovqinni kamaytiradi, bitta zaryadda 30 soatgacha ishlaydi.",
+    "price": 59.99,
+    "category": "Electronics",
+    "image": "/image/products/headphones.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 5,
+    "title": "School Backpack",
+    "description": "Yengil va chidamli ryukzak. Noutbuk uchun alohida bo'limi bor, suvdan himoyalangan mato.",
+    "price": 35,
+    "category": "Bags",
+    "image": "/image/products/backpack.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 6,
+    "title": "Gel Pen Set",
+    "description": "Uch xil rangdagi gel ruchkalar to'plami. Yozganda siyoh tekis oqadi.",
+    "price": 6.9,
+    "category": "Stationery",
+    "image": "/image/products/pens.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 7,
+    "title": "Notebook A5",
+    "description": "Qattiq muqovali daftar, 120 varaq, katak. Maktab va ish uchun qulay.",
+    "price": 4.5,
+    "category": "Stationery",
+    "image": "/image/products/notebook.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 8,
+    "title": "Eraser",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.",
+    "price": 2.3,
+    "category": "Stationery",
+    "image": "/image/products/eraser.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  },
+  {
+    "id": 9,
+    "title": "Eraser Pro Max",
+    "description": "Good quality eraser. Premium rubber, qog'ozni ifloslantirmaydi va yirtmaydi.",
+    "price": 220,
+    "category": "Stationery",
+    "image": "/image/products/eraser-pro.svg",
+    "createdBy": 1,
+    "createdAt": "2026-11-07T16:39:56.297Z",
+    "updatedAt": "2026-11-07T16:39:56.297Z"
+  }
+]

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= typeof title !== 'undefined' ? title + ' | ' : '' %><%= appName %></title>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100 <%= typeof bodyClass !== 'undefined' ? bodyClass : '' %>">
+
+<nav class="navbar navbar-expand-md navbar-dark shop-nav sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/"><span class="brand-dot"></span><%= appName %></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Menyu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <form class="d-flex ms-md-3 my-2 my-md-0" role="search" action="/" method="get">
+        <input class="form-control form-control-sm me-2" type="search" name="q" maxlength="60"
+               placeholder="Search products..." value="<%= typeof q !== 'undefined' ? q : '' %>" aria-label="Search">
+        <button class="btn btn-sm btn-outline-light" type="submit">Search</button>
+      </form>
+
+      <ul class="navbar-nav ms-auto align-items-md-center gap-2 mt-2 mt-md-0">
+        <% if (user) { %>
+          <li class="nav-item text-light small me-md-1">
+            Hi, <strong><%= user.name %></strong>
+            <% if (user.role === 'admin') { %><span class="badge text-bg-warning ms-1">admin</span><% } %>
+          </li>
+          <li class="nav-item"><a class="btn btn-sm btn-primary" href="/products/add">Add product</a></li>
+          <li class="nav-item">
+            <form action="/logout" method="post" class="m-0">
+              <button class="btn btn-sm btn-outline-light" type="submit">Logout</button>
+            </form>
+          </li>
+        <% } else { %>
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-primary" href="/register">Register</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% if (flash) { %>
+  <div class="container mt-3">
+    <div class="alert alert-<%= flash.type %> alert-dismissible fade show mb-0" role="alert">
+      <%= flash.message %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Yopish"></button>
+    </div>
+  </div>
+<% } %>
+
+<main class="flex-grow-1 py-4">
